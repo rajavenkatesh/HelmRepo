@@ -1,0 +1,167 @@
+
+image:
+  registry: docker.io
+  repository: bitnami/wordpress
+  tag: 5.3.2-debian-10-r32
+  pullPolicy: IfNotPresent
+  debug: false
+
+
+
+wordpressUsername: user
+
+
+wordpressEmail: user@example.com
+
+wordpressFirstName: FirstName
+
+wordpressLastName: LastName
+
+wordpressBlogName: User's Blog!
+
+wordpressTablePrefix: wp_
+
+wordpressScheme: http
+
+wordpressSkipInstall: false
+
+updateStrategy:
+  type: RollingUpdate
+
+allowEmptyPassword: true
+
+allowOverrideNone: false
+
+customHTAccessCM:
+
+
+
+replicaCount: 1
+
+extraEnv: []
+
+extraVolumeMounts: []
+
+extraVolumes: []
+
+resources:
+  limits: {}
+  requests:
+    memory: 512Mi
+    cpu: 300m
+
+affinity: {}
+
+nodeSelector: {}
+
+tolerations: {}
+
+podAnnotations: {}
+
+securityContext:
+  enabled: true
+  fsGroup: 1001
+  runAsUser: 1001
+
+healthcheckHttps: false
+
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 120
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+
+livenessProbeHeaders: {}
+readinessProbeHeaders: {}
+
+service:
+  type: NodePort
+  port: 80
+  httpsPort: 443
+  httpsTargetPort: https
+  metricsPort: 9117
+  nodePorts:
+    http: "30080"
+    https: ""
+    metrics: ""
+  externalTrafficPolicy: Cluster
+  annotations: {}
+  loadBalancerSourceRanges: []
+
+ingress:
+  enabled: false
+
+  certManager: false
+
+  hostname: wordpress.local
+
+  annotations: {}
+
+
+
+  secrets: []
+
+persistence:
+  enabled: false
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
+mariadb:
+  enabled: true
+  replication:
+    enabled: false
+
+  db:
+    name: bitnami_wordpress
+    user: bn_wordpress
+
+
+  master:
+    persistence:
+      enabled: false
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
+
+externalDatabase:
+  host: localhost
+
+  user: bn_wordpress
+
+  password: ""
+
+  database: bitnami_wordpress
+
+  port: 3306
+
+metrics:
+  enabled: false
+  image:
+    registry: docker.io
+    repository: bitnami/apache-exporter
+    tag: 0.7.0-debian-10-r32
+    pullPolicy: IfNotPresent
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9117"
+
+  resources:
+    limits: {}
+    requests: {}
+
+  serviceMonitor:
+    enabled: false
+    interval: 30s
+    honorLabels: false
+    additionalLabels: {}
+
+sidecars: {}

@@ -3,7 +3,7 @@ entries:
   wordpress:
   - apiVersion: v1
     appVersion: 5.3.2
-    created: 2021-03-06T18:51:04.943106396Z
+    created: 2021-03-07T16:05:02.065836469Z
     deprecated: true
     description: Chart developed by me.
     digest: c98c3c9d3952fbac39eae616851eea88fab2a940db72dd0730769911325ff0e4
@@ -24,4 +24,28 @@ entries:
     urls:
     - wordpress-9.0.3.tgz
     version: 9.0.3
-generated: 2021-03-06T18:51:04.937742996Z
+  - apiVersion: v1
+    appVersion: 5.3.2
+    created: 2021-03-07T16:05:01.911941524Z
+    deprecated: true
+    description: DEPRECATED Web publishing platform for building blogs and websites
+      - without PV.
+    digest: 1b798d4c039e28972b507a324723f9d9b36300be5faba2cfb45f9e61a3d531d7
+    engine: gotpl
+    home: http://www.wordpress.com/
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - wordpress
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    urls:
+    - wordpress-9.0.2.tgz
+    version: 9.0.2
+generated: 2021-03-07T16:05:01.906866043Z
