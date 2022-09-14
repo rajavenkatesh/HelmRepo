@@ -1,0 +1,7 @@
+{
+  "update": {
+    "message": "Updated!",
+    "props": {}
+  },
+  "ephemeral_text": "You updated the post!"
+}
